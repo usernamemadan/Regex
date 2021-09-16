@@ -21,6 +21,14 @@ public class UserRegistration {
 		} else {
 			System.out.println("Last name is invalid");
 		}
+
+		String EmailRegex = "^[a-z]{3}[[\\.][a-z]{3}]*\\@[a-z]{2}\\.[a-z]{2}[\\.[a-z]{2}]*";
+		String Email = input("LastName");
+		if (Pattern.matches(EmailRegex, Email)) { 
+			System.out.println("Email is valid");
+		} else {
+			System.out.println("Email is invalid");
+		}
 	
 
 	}
