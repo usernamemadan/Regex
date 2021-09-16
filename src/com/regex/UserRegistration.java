@@ -38,6 +38,13 @@ public class UserRegistration {
 			System.out.println("Mobile number is invalid");
 		}
 		
+		String passwordRegex = "[0-9A-Za-z]{8}[0-9A-Za-z]*";
+		String password = input("password");
+		if (Pattern.matches(passwordRegex, password)) { 
+			System.out.println("password is valid");
+		} else {
+			System.out.println("password is invalid");
+		}
 		
 
 	}
