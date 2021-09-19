@@ -22,7 +22,7 @@ public class UserRegistration {
 			System.out.println("Last name is invalid");
 		}
 
-		String EmailRegex = "^[a-z]{3}[[\\.][a-z]{3}]*\\@[a-z]{2}\\.[a-z]{2}[\\.[a-z]{2}]*";
+		String EmailRegex = "^[a-zA-Z0-9-_+]+(\\.?[a-zA-Z0-9-_]+)@[a-zA-Z0-9-_]+\\.[a-zA-Z]{2,}(\\.?[a-zA-Z-_]+)";
 		String Email = input("Email");
 		if (Pattern.matches(EmailRegex, Email)) { 
 			System.out.println("Email is valid");
@@ -38,15 +38,13 @@ public class UserRegistration {
 			System.out.println("Mobile number is invalid");
 		}
 		
-		String passwordRegex = "(?=.*[A-Z])(?=.*[0-9]).{8,}";
+		String passwordRegex = "(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*]).{8,}";
 		String password = input("password");
 		if (Pattern.matches(passwordRegex, password)) { 
 			System.out.println("password is valid");
 		} else {
 			System.out.println("password is invalid");
 		}
-		
-
 	}
 	public static String input(String field) {
 		System.out.println("Enter the " + field);
