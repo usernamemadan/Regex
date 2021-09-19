@@ -38,7 +38,7 @@ public class UserRegistration {
 			System.out.println("Mobile number is invalid");
 		}
 		
-		String passwordRegex = "([a-zA-Z0-9])*[A-Z]([a-zA-Z0-9])*{8}[a-zA-Z0-9]*";
+		String passwordRegex = "(?=.*[A-Z])(?=.*[0-9]).{8,}";
 		String password = input("password");
 		if (Pattern.matches(passwordRegex, password)) { 
 			System.out.println("password is valid");
