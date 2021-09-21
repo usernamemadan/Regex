@@ -3,11 +3,13 @@ package com.userregistrationtest;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
 
 import com.userregistration.UserRegistration;
 
 public class userRegistrationTest {
-
+   
 	UserRegistration user;
 
 	@Before
