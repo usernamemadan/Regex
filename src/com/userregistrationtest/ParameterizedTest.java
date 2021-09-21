@@ -9,6 +9,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
+import com.customExceptions.InvalidEmailException;
 import com.userregistration.UserRegistration;
 
 @RunWith(Parameterized.class)
@@ -32,7 +33,11 @@ public class ParameterizedTest {
 
 	@Test
 	public void testEmail() {
-		Assert.assertTrue(user.validateEmail(email));
-		System.out.println("Email: " + email + " is valid");
+		try {
+			Assert.assertTrue(user.validateEmail(email));
+			System.out.println("Email: " + email + " is valid");
+		} catch (InvalidEmailException e) {
+			System.out.println("Email: " + email + " is invalid");
+		}
 	}
 }
