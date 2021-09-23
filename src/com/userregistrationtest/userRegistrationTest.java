@@ -10,15 +10,25 @@ import com.customExceptions.InvalidMoblieNumberException;
 import com.customExceptions.InvalidPasswordException;
 import com.userregistration.UserRegistration;
 
+/*This class tests the inputs for user registration inputs
+*/
 public class userRegistrationTest {
 
 	UserRegistration user;
+	Boolean validFirstName;
+	Boolean validLastName;
+	Boolean validEmail;
+	Boolean validMobileNumber;
+	Boolean validPassword;
 
 	@Before
 	public void init() {
 		user = new UserRegistration();
 	}
 
+	/*this method test all the happy test cases
+	 * all the test cases which are valid are tested in this method
+		*/
 	@Test
 	public void happyTestCase() {
 		String firstName = "John";
@@ -28,17 +38,11 @@ public class userRegistrationTest {
 		String password = "aaabbb222A*";
 
 		try {
-			Boolean validFirstName = user.validateFirstName(firstName);
-			Boolean validLastName = user.validateLastName(lastName);
-			Boolean validEmail = user.validateEmail(email);
-			Boolean validMobileNumber = user.validatePhoneNumber(mobile);
-			Boolean validPassword = user.validatePassword(password);
-
-			Assert.assertTrue(validFirstName);
-			Assert.assertTrue(validLastName);
-			Assert.assertTrue(validEmail);
-			Assert.assertTrue(validMobileNumber);
-			Assert.assertTrue(validPassword);
+			validFirstName = user.validateFirstName(firstName);
+			validLastName = user.validateLastName(lastName);
+			validEmail = user.validateEmail(email);
+			validMobileNumber = user.validatePhoneNumber(mobile);
+			validPassword = user.validatePassword(password);
 		} catch (InvalidFirstNameException e) {
 			e.printStackTrace();
 		} catch (InvalidLastNameException e) {
@@ -49,9 +53,18 @@ public class userRegistrationTest {
 			e.printStackTrace();
 		} catch (InvalidPasswordException e) {
 			e.printStackTrace();
+		} finally {
+			Assert.assertTrue(validFirstName);
+			Assert.assertTrue(validLastName);
+			Assert.assertTrue(validEmail);
+			Assert.assertTrue(validMobileNumber);
+			Assert.assertTrue(validPassword);
 		}
 	}
 
+	/*this method test all the sad test cases
+	 * all the test cases which are fails are tested in this method
+		*/
 	@Test
 	public void sadTestCase() {
 		String firstName = "john";
@@ -59,18 +72,14 @@ public class userRegistrationTest {
 		String email = "hello.google.123@gmail.co.in";
 		String mobile = "91 99922233342";
 		String password = "password123*";
-		try {
-			Boolean validFirstName = user.validateFirstName(firstName);
-			Boolean validLastName = user.validateLastName(lastName);
-			Boolean validEmail = user.validateEmail(email);
-			Boolean validMobileNumber = user.validatePhoneNumber(mobile);
-			Boolean validPassword = user.validatePassword(password);
 
-			Assert.assertTrue(validFirstName);
-			Assert.assertTrue(validLastName);
-			Assert.assertTrue(validEmail);
-			Assert.assertTrue(validMobileNumber);
-			Assert.assertTrue(validPassword);
+		try {
+			validFirstName = user.validateFirstName(firstName);
+			validLastName = user.validateLastName(lastName);
+			validEmail = user.validateEmail(email);
+			validMobileNumber = user.validatePhoneNumber(mobile);
+			validPassword = user.validatePassword(password);
+
 		} catch (InvalidFirstNameException e) {
 			e.printStackTrace();
 		} catch (InvalidLastNameException e) {
@@ -81,7 +90,12 @@ public class userRegistrationTest {
 			e.printStackTrace();
 		} catch (InvalidPasswordException e) {
 			e.printStackTrace();
+		} finally {
+			Assert.assertTrue(validFirstName);
+			Assert.assertTrue(validLastName);
+			Assert.assertTrue(validEmail);
+			Assert.assertTrue(validMobileNumber);
+			Assert.assertTrue(validPassword);
 		}
-}
-
+	}
 }
